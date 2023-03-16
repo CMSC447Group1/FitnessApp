@@ -45,7 +45,7 @@ const ExercisesSection = () => {
   return (
     <div className="flex flex-col flex-wrap overflow-clip">
       {/* Search header group */}
-      <div className="flex flex-col items-center mt-4 sm:flex-row sm:justify-evenly ">
+      <div className="flex flex-col items-center mt-4 sm:flex-row sm:justify-evenly">
         {/* Search by Name Box*/}
         <SearchBox callBack={setExerciseName} onKeyDownFunc={apiCall} />
 
@@ -94,7 +94,7 @@ const ExercisesSection = () => {
       {apiData.length > 1 ? (
         <CardList exercises={apiData} />
       ) : (
-        <div className=" text-gray-500 flex items-center justify-center mt-32 mb-60">
+        <div className=" text-gray-500 flex items-center justify-center mt-32">
           No results were found <br /> Try using other filter options
         </div>
       )}

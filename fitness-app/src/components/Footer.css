@@ -6,9 +6,10 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 10px;
-    /* bottom: 0; */
-    /* color: white; */
+    padding-top: 10px;
+    position: fixed;
+    bottom: 0;
+    color: white;
 }
 
 .socialMedia svg {

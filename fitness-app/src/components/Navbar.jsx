@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-import Logo from "./assets/RandomFitnessLogo.png";
+import Logo from "../assets/logo.svg";
 import ReorderIcon from "@material-ui/icons/Reorder";
 
 function Navbar() {
@@ -12,9 +12,9 @@ function Navbar() {
   };
 
   return (
-    <div className="navbar">
+    <div className="navbar overflow-clip bg-black">
       <div className="leftSide" id={openLinks ? "open" : "close"}>
-        <img src={Logo} />
+        <img className="logo" src={Logo} />
         <div className="hiddenLinks">
           <Link to="/"> Home </Link>
           <Link to="/exercises"> Exercises </Link>
@@ -23,9 +23,7 @@ function Navbar() {
       </div>
       <div className="rightSide">
         <Link to="/"> Home </Link>
-        &emsp; &emsp;
         <Link to="/exercises"> Exercises </Link>
-        &emsp; &emsp;
         <Link to="/sheets"> Sheets </Link>
         <button onClick={toggleNavbar}>
           <ReorderIcon />

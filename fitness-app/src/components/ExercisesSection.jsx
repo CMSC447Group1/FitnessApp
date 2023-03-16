@@ -43,9 +43,9 @@ const ExercisesSection = () => {
   }
 
   return (
-    <div className="flex flex-col flex-wrap overflow-clip">
+    <div className="flex flex-col overflow-clip">
       {/* Search header group */}
-      <div className="flex flex-col items-center mt-4 sm:flex-row sm:justify-evenly">
+      <div className="flex flex-col items-center sm:mt-2 sm:flex-row sm:justify-evenly ">
         {/* Search by Name Box*/}
         <SearchBox callBack={setExerciseName} onKeyDownFunc={apiCall} />
 

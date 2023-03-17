@@ -80,7 +80,7 @@ const ExercisesSection = () => {
           <button
             class="relative inline-flex items-center justify-center p-0.5 
           overflow-hidden text-sm font-medium text-gray-900 rounded-lg group 
-          bg-gradient-to-tr from-sky-400 to-sky-200 group-hover:from-pink-500
+          bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500
            group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 
            focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800"
             onClick={apiCall}
@@ -94,7 +94,7 @@ const ExercisesSection = () => {
       {apiData.length > 1 ? (
         <CardList exercises={apiData} />
       ) : (
-        <div className=" text-gray-500 flex items-center justify-center mt-32">
+        <div className=" text-gray-500 flex items-center justify-center mt-32 mb-60">
           No results were found <br /> Try using other filter options
         </div>
       )}

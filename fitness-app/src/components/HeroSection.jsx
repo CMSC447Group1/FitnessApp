@@ -1,8 +1,5 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Row, Col, Image, Button } from "react-bootstrap";
 
-import Hero from "../assets/hero.png";
 const HeroSection = () => {
   return (
     // <div className="flex w-full flex-col items-center h-72 bg-black overflow-clip ">

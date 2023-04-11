@@ -1,4 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
+
+import { IconButton } from "@mui/material";
 
 const ExerciseCard = (props) => {
   return (
@@ -16,6 +21,13 @@ const ExerciseCard = (props) => {
           <text className="text-lg no-underline hover:underline">
             {props.exercise.name}
           </text>
+          {props.callBack != null ? (
+            <IconButton onClick={() => props.callBack(props.exercise.name)}>
+              <AddCircleIcon className=" text-slate-400" />
+            </IconButton>
+          ) : (
+            <div />
+          )}
         </div>
         <div class="flex items-center justify-between leading-none p-2 md:p-4">
           <p className="text-grey-darker text-sm">

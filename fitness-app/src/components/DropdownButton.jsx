@@ -12,7 +12,7 @@ const DropdownButton = (props) => {
   };
 
   return (
-    <div className="w-52 sm:w-48 mb-2 sm:mb-0 shadow-lg">
+    <div className="w-52 sm:w-40 mb-2 sm:mb-0 shadow-lg">
       <Listbox value={selected} onChange={handleChange}>
         <Listbox.Label className="block">Filter by {props.title}</Listbox.Label>
         <div className="relative mt-1">

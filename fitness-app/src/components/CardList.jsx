@@ -3,15 +3,26 @@ import ExerciseCard from "./ExerciseCard";
 const CardList = (props) => {
   const exercises = props.exercises;
 
+  // const exercises_test = [
+  //   {
+  //     id: 1,
+  //     name: "test exercise",
+  //     level: "expert",
+  //     type: "cardio",
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "test 2 exercise",
+  //     level: "expert 2",
+  //     type: "cardio 2",
+  //   },
+  // ];
+
   return (
-    <div className="flex">
-      <div className="container my-12 mx-auto px-4 md:px-12">
-        <div className="flex flex-wrap -mx-1 lg:-mx-4">
-          {exercises.map((exercise) => (
-            <ExerciseCard exercise={exercise} />
-          ))}
-        </div>
-      </div>
+    <div className="flex flex-wrap justify-start">
+      {exercises.map((exercise) => (
+        <ExerciseCard exercise={exercise} callBack={props.callBack} />
+      ))}
     </div>
   );
 };

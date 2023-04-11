@@ -5,10 +5,11 @@ import DropdownButton from "./DropdownButton";
 
 import { api_options } from "../constants";
 import CardList from "./CardList";
+import Button from "@mui/material/Button";
 
 import axios from "axios";
 
-const ExercisesSection = () => {
+const ExercisesSection = (props) => {
   const [muscle, setMuscle] = useState("");
   const [exerciseName, setExerciseName] = useState("");
   const [level, setLevel] = useState("");
@@ -43,9 +44,9 @@ const ExercisesSection = () => {
   }
 
   return (
-    <div className="flex flex-col overflow-clip">
+    <div className="flex flex-col mx-4 overflow-clip">
       {/* Search header group */}
-      <div className="flex flex-col items-center sm:mt-2 sm:flex-row sm:justify-evenly ">
+      <div className="flex flex-col items-center sm:mt-2 md:flex-row sm:justify-evenly ">
         {/* Search by Name Box*/}
         <SearchBox callBack={setExerciseName} onKeyDownFunc={apiCall} />
 
@@ -77,22 +78,33 @@ const ExercisesSection = () => {
         </div>
 
         <div className="mt-0 sm:mt-6">
-          <button
-            class="relative inline-flex items-center justify-center p-0.5 
-          overflow-hidden text-sm font-medium text-gray-900 rounded-lg group 
-          bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500
-           group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 
-           focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800"
+          <Button
+            variant="contained"
+            className="from-pink-500 to-orange-400"
+            style={{
+              textTransform: "none",
+              fontSize: 13,
+              transition: "0.3s cubic-bezier(.47,1.64,.41,.8)",
+              background:
+                "linear-gradient(to bottom right, var(--tw-gradient-stops))",
+              borderRadius: 20,
+            }}
             onClick={apiCall}
           >
-            <span class="relative px-2 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-              View Exercises
-            </span>
-          </button>
+            View Exercises
+          </Button>
+
+          {/* <Button
+            variant="contained"
+            className="from-pink-500 to-orange-400"
+            onClick={apiCall}
+          >
+            View Exercises
+          </Button>{" "} */}
         </div>
       </div>
       {apiData.length > 1 ? (
-        <CardList exercises={apiData} />
+        <CardList exercises={apiData} callBack={props.callBack} />
       ) : (
         <div className=" text-gray-500 flex items-center justify-center mt-32 mb-60">
           No results were found <br /> Try using other filter options

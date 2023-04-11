@@ -1,5 +1,7 @@
 import React from "react";
 
+import Button from "@mui/material/Button";
+
 const HeroSection = () => {
   return (
     // <div className="flex w-full flex-col items-center h-72 bg-black overflow-clip ">
@@ -52,7 +54,7 @@ const HeroSection = () => {
     >
       <div
         class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"
-        style={{ backgroundColor: "rgba(0, 0, 0, 0.75)" }}
+        style={{ backgroundColor: "rgba(0, 0, 0, 0.45)" }}
       >
         <div class="flex justify-center items-center h-full">
           <div class="text-center text-white px-6 md:px-12">
@@ -60,9 +62,21 @@ const HeroSection = () => {
               Welcome to Group 1's <br />
               <span>Fitness Webapp</span>
             </h1>
-            <button class="inline-block px-7 py-3 border-2 border-white text-white font-medium text-sm leading-snug uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
-              Get started
-            </button>
+            <Button
+              variant="contained"
+              className="from-pink-500 to-orange-400"
+              size="large"
+              style={{
+                textTransform: "none",
+                fontSize: 20,
+                minWidth: 100,
+                background:
+                  "linear-gradient(to bottom right, var(--tw-gradient-stops))",
+                borderRadius: 20,
+              }}
+            >
+              Get Started
+            </Button>
           </div>
         </div>
       </div>

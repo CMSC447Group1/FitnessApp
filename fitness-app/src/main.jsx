@@ -1,19 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import { MuiThemeProvider, createTheme } from "@material-ui/core/styles";
-
-import {
-  BrowserRouter,
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./index.css";
-import HomePage from "./pages/HomePage";
-import ErrorPage from "./pages/ErrorPage";
-import { element } from "prop-types";
-import MySheetsPage from "./pages/MySheetsPage";
 import CreateSheetPage from "./pages/CreateSheetPage";
+import ErrorPage from "./pages/ErrorPage";
+import HomePage from "./pages/HomePage";
+import MySheetsPage from "./pages/MySheetsPage";
 import WorkoutPage from "./pages/WorkoutPage";
 
 const router = createBrowserRouter([

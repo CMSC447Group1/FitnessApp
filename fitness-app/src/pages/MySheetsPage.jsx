@@ -1,39 +1,42 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import WorkoutList from "../components/WorkoutList";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import EastIcon from "@mui/icons-material/East";
+
+import axios from "axios";
+import { Button } from "@mui/material";
 
 const MySheetsPage = () => {
+  const [workouts, setWorkouts] = useState([{}]);
+
+  useEffect(() => {
+    const fetchWorkouts = async () => {
+      try {
+        const url = "http://localhost:8000/myworkouts";
+        const response = await axios.get(url);
+        setWorkouts(response.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchWorkouts();
+  }, []);
+
   return (
-    <>
-      {/* <div>SheetsPage</div>
-      <div>
-        <Link to="/createWorkoutSheet">
-          <button
-            class="relative inline-flex items-center justify-center p-0.5 
-          overflow-hidden text-sm font-medium text-gray-900 rounded-lg group 
-          bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500
-           group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 
-           focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800"
-          >
-            <span class="relative px-2 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-              Create Workout
-            </span>
-          </button>
-        </Link>
-      </div> */}
+    <div className="flex flex-col justify-center items-center h-full w-full">
+      <Navbar />
 
-      <div>
-        <Navbar />
-
-        <h4 class="flex text-2xl font-bold leading-tight text-gray-800 dark:text-gray-100">
-          Workout sheet list
+      <div className="flex flex-col w-full items-center">
+        <h4 className="text-4xl mt-1 font-bold leading-tight text-gray-800 dark:text-gray-100">
+          My Workouts
         </h4>
 
-        <Link to="/createWorkoutSheet">
-          <button class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            Create Workout
+        <Link to="/createWorkoutSheet" className="mt-4">
+          {/* <button class="inline-flex mt-10 items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            Create New Workout
             <svg
               aria-hidden="true"
               class="w-4 h-4 ml-2 -mr-1"
@@ -47,14 +50,32 @@ const MySheetsPage = () => {
                 clip-rule="evenodd"
               ></path>
             </svg>
-          </button>
+          </button> */}
+          <Button
+            variant="contained"
+            className="from-pink-500 to-orange-400"
+            size="medium"
+            endIcon={<EastIcon />}
+            style={{
+              textTransform: "none",
+              fontSize: 20,
+              minWidth: 100,
+              background:
+                "linear-gradient(to bottom right, var(--tw-gradient-stops))",
+              borderRadius: 20,
+            }}
+          >
+            Create New Workout
+          </Button>
         </Link>
-
-        <WorkoutList />
-
-        <Footer />
       </div>
-    </>
+
+      {/* <div className="flex justify-center items-center"> */}
+      <WorkoutList workouts={workouts} />
+      {/* </div> */}
+
+      <Footer />
+    </div>
   );
 };
 

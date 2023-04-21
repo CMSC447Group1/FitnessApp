@@ -44,7 +44,7 @@ const ExercisesSection = (props) => {
   }
 
   return (
-    <div className="flex flex-col mx-4 overflow-clip">
+    <div id="exercises" className="flex flex-col mx-4 overflow-clip">
       {/* Search header group */}
       <div className="flex flex-col items-center sm:mt-2 md:flex-row sm:justify-evenly ">
         {/* Search by Name Box*/}

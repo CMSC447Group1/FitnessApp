@@ -6,9 +6,14 @@ import { IconButton } from "@mui/material";
 import Button from "@mui/material/Button";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const CreateSheetPage = () => {
   const [exercises, setExercises] = useState([]);
+  const [workoutTitle, setWorkoutTitle] = useState("");
+  const [workoutDescription, setWorkoutDescription] = useState("");
+  const navigate = useNavigate();
 
   function addExercises(exercise) {
     if (!exercises.includes(exercise))
@@ -21,14 +26,56 @@ const CreateSheetPage = () => {
     });
   }
 
-  return (
-    <>
-      <Navbar />
+  const handleChangeTitle = (e) => {
+    setWorkoutTitle(e.target.value);
+  };
 
-      <div className=" flex h-fit flex-row">
+  const handleChangeDescription = (e) => {
+    setWorkoutDescription(e.target.value);
+  };
+
+  const saveWorkout = async () => {
+    const workoutInfo = {
+      name: workoutTitle,
+      description: workoutDescription,
+    };
+
+    const exercises_arr = exercises.map(function (exercise) {
+      let json = {
+        workout_name: workoutTitle,
+        exercise: exercise,
+        reps: 10,
+        sets: 3,
+      };
+      return json;
+    });
+
+    try {
+      // first create the workout in the database
+      await axios.post("http://127.0.0.1:8000/myworkouts", workoutInfo);
+      await axios.post(
+        "http://127.0.0.1:8000/myworkouts/exercises",
+        exercises_arr
+      );
+      // console.log(exercises_arr);
+    } catch (err) {
+      console.log(err);
+    }
+
+    navigate("/sheets");
+  };
+
+  return (
+    <div className="flex flex-col h-full w-full">
+      <Navbar />
+      <div className="flex h-full w-full flex-col md:flex-row">
         {/* leftSide */}
+
         <div className="bg-gradient-to-b from-gray-700 via-gray-900 to-black flex flex-[30%] flex-col text-white rounded-3xl m-3">
-          <label for="helper-text" class="mt-3 flex justify-center font-medium">
+          <label
+            for="helper-text"
+            class="mt-3 flex justify-center font-medium text-2xl"
+          >
             Name Your Workout
           </label>
           <input
@@ -36,6 +83,21 @@ const CreateSheetPage = () => {
             aria-describedby="helper-text-explanation"
             class="bg-gray-50 mt-2 border self-center border-gray-300 text-gray-900 text-sm rounded-lg block w-[80%] p-2.5  "
             placeholder='e.g. "Monday Workout" '
+            onChange={handleChangeTitle}
+          />
+
+          <label
+            for="helper-text"
+            class="mt-3 flex justify-center font-light text-sm"
+          >
+            Give your workout a brief description
+          </label>
+          <input
+            id="helper-text"
+            aria-describedby="helper-text-explanation"
+            class="bg-gray-50 mt-2 border self-center border-gray-300 text-gray-900 text-sm rounded-lg block w-[80%] p-2.5  "
+            placeholder='e.g. "Chest focused workout" '
+            onChange={handleChangeDescription}
           />
 
           <div className=" mt-6 flex justify-start ml-2 font-medium">
@@ -68,11 +130,17 @@ const CreateSheetPage = () => {
             </ul>
           )}
 
-          <div className="mt-10 justify-center flex">
+          <div className="mt-10 justify-center flex mb-8 md:mb-0">
             <Button
               variant="contained"
-              disabled={exercises.length <= 0 ? true : false}
-              className="from-pink-500 to-orange-400"
+              disabled={
+                exercises.length <= 0 ||
+                workoutTitle.localeCompare("") == 0 ||
+                workoutDescription.localeCompare("") == 0
+                  ? true
+                  : false
+              }
+              className="from-pink-500 to-orange-400 "
               style={{
                 textTransform: "none",
                 fontSize: 15,
@@ -82,6 +150,7 @@ const CreateSheetPage = () => {
                   "linear-gradient(to bottom right, var(--tw-gradient-stops))",
                 borderRadius: 20,
               }}
+              onClick={saveWorkout}
             >
               Save Workout
             </Button>
@@ -96,9 +165,8 @@ const CreateSheetPage = () => {
           <ExercisesSection callBack={addExercises} />
         </div>
       </div>
-
       <Footer />
-    </>
+    </div>
   );
 };
 

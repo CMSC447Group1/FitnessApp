@@ -1,11 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import axios from "axios";
 
 const WorkoutCard = (props) => {
+  const handleDelete = async (id) => {
+    try {
+      console.log(id);
+      await axios.delete("http://127.0.0.1:8000/myworkouts/" + id);
+      window.location.reload();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
-    <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-      <Link to="/myWorkout">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+    <div class="max-w-sm h-fit p-6 m-2 bg-white border border-gray-200 rounded-lg shadow-xl dark:bg-gray-800 dark:border-gray-700">
+      <Link to="/myWorkout" state={{ data: props.workouts }}>
+        <h5 class="mb-2 text-2xl hover:text-blue-700 font-bold tracking-tight text-gray-900 dark:text-white">
           {props.workouts.name}
         </h5>
       </Link>
@@ -13,44 +26,31 @@ const WorkoutCard = (props) => {
         {props.workouts.description}
       </p>
 
-      <a
-        href="#"
-        class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-      >
-        Update Workout
-        <svg
-          aria-hidden="true"
-          class="w-4 h-4 ml-2 -mr-1"
-          fill="currentColor"
-          viewBox="0 0 20 20"
-          xmlns="http://localhost:5173/sheets"
+      {/* <div class="inline-flex mx-1 items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+        <text className="mx-1">Update Workout</text>
+        <EditIcon fontSize="small" />
+      </div> */}
+      <div className="flex flex-row space-x-3">
+        <button
+          class="flex flex-row items-center px-3 py-2 text-sm 
+      font-medium text-center text-white bg-blue-700 rounded-lg 
+      hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300
+       dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >
-          <path
-            fill-rule="evenodd"
-            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-            clip-rule="evenodd"
-          ></path>
-        </svg>
-      </a>
-      <a
-        href="#"
-        class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-      >
-        Delete Workout
-        <svg
-          aria-hidden="true"
-          class="w-4 h-4 ml-2 -mr-1"
-          fill="currentColor"
-          viewBox="0 0 20 20"
-          xmlns="http://localhost:5173/sheets"
+          <text className="mx-1">Edit Workout</text>
+          <EditIcon fontSize="small" />
+        </button>
+        <button
+          class="inline-flex items-center px-3 py-2 text-sm 
+      font-medium text-center text-white bg-blue-700 rounded-lg 
+      hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300
+       dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          onClick={() => handleDelete(props.workouts.id)}
         >
-          <path
-            fill-rule="evenodd"
-            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-            clip-rule="evenodd"
-          ></path>
-        </svg>
-      </a>
+          <text className="mx-1">Delete Workout</text>
+          <DeleteForeverIcon fontSize="small" />
+        </button>
+      </div>
     </div>
   );
 };

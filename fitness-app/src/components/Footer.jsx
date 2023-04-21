@@ -7,7 +7,7 @@ import LinkedInIcon from "@material-ui/icons/LinkedIn";
 
 function Footer() {
   return (
-    <div className="footer overflow-clip bg-gradient-to-t from-gray-800 via-gray-900 to-black">
+    <div className="flex flex-col h-24 w-full justify-center items-center bg-gradient-to-t from-gray-800 via-gray-900 to-black">
       <div className="socialMedia">
         <InstagramIcon /> <TwitterIcon /> <FacebookIcon /> <LinkedInIcon />
       </div>

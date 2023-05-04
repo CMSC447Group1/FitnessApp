@@ -1,8 +1,8 @@
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import EditIcon from "@mui/icons-material/Edit";
+import axios from "axios";
 import React from "react";
 import { Link } from "react-router-dom";
-import EditIcon from "@mui/icons-material/Edit";
-import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
-import axios from "axios";
 
 const WorkoutCard = (props) => {
   const handleDelete = async (id) => {
@@ -37,8 +37,10 @@ const WorkoutCard = (props) => {
       hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300
        dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >
-          <text className="mx-1">Edit Workout</text>
-          <EditIcon fontSize="small" />
+          <Link to="/editWorkoutSheet" state={{ data: props.workouts }}>
+            <text className="mx-1">Edit Workout</text>
+            <EditIcon fontSize="small" />
+          </Link>
         </button>
         <button
           class="inline-flex items-center px-3 py-2 text-sm 

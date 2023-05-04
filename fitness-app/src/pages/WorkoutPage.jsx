@@ -5,37 +5,11 @@ import Footer from "../components/Footer";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 
-const exercises_test = [
-  {
-    id: 1,
-    difficulty: "intermediate",
-    name: "test_exercise1",
-    type: "type1",
-    weight: 185,
-    reps: "8-10",
-  },
-  {
-    id: 2,
-    difficulty: "Expert",
-    name: "test_exercise2",
-    type: "type2",
-    weight: 225,
-    reps: "4-6",
-  },
-  {
-    id: 3,
-    difficulty: "Beginner",
-    name: "test_exercise3",
-    type: "type3",
-    weight: 90,
-    reps: "10-12",
-  },
-];
-
 const WorkoutPage = () => {
   const location = useLocation();
   const data = location.state?.data;
 
+  console.log(data);
   const [exercises, setExercises] = useState([{}]);
 
   useEffect(() => {

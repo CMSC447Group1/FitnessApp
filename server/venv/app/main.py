@@ -112,3 +112,38 @@ def create_exercises(exercises: List[Exercise]):
         if not workoutList:
             return {'message': 'exercise not created'}
     return {'message': 'all worked out'}
+
+
+@app.put("/myworkouts/{id}", status_code=status.HTTP_201_CREATED)
+def edit_workout(id: int, workout: Workout):
+
+    # check if workout exists
+    cursor.execute(
+        "SELECT * from workout_sheet WHERE id = %s", [str(id)])
+    workoutList = cursor.fetchall()
+    if not workoutList:
+        raise HTTPException(status_code=404, detail="Workout not found")
+
+    # update workout info
+    cursor.execute(
+        "UPDATE workout_sheet SET `name` = %s, `description` = %s WHERE id = %s", [workout.name, workout.description, str(id)])
+
+    mydb.commit()
+    return {"ok": True}
+
+
+@app.put("/myworkouts/exercises/{id}")
+def edit_exercises(id: int, exercises: List[Exercise]):
+    cursor.execute(
+        "DELETE FROM workout_exercise WHERE workout_id = %s", [str(id)])
+
+    for exercise in exercises:
+        cursor.execute("""INSERT INTO workout_exercise (workout_id, exercise, reps, sets) VALUES (%s, %s, %s, %s) """,
+                       (id, exercise.exercise, exercise.reps, exercise.sets))
+        cursor.execute(
+            """ SELECT exercise FROM workout_exercise WHERE exercise = %s""", [exercise.exercise])
+        workoutList = cursor.fetchall()
+        mydb.commit()
+        if not workoutList:
+            return {'message': 'exercise not created'}
+    return {'message': 'all worked out'}

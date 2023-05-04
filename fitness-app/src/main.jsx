@@ -8,6 +8,7 @@ import ErrorPage from "./pages/ErrorPage";
 import HomePage from "./pages/HomePage";
 import MySheetsPage from "./pages/MySheetsPage";
 import WorkoutPage from "./pages/WorkoutPage";
+import EditSheetPage from "./pages/EditSheetPage";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
     element: <CreateSheetPage />,
   },
   {
+    path: "/editWorkoutSheet",
+    element: <EditSheetPage />,
+  },
+  {
     path: "/myWorkout",
     element: <WorkoutPage />,
   },
@@ -31,9 +36,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   // <BrowserRouter>
-  <React.StrictMode>
+  <>
     <RouterProvider router={router} />
     {/* <App /> */}
-  </React.StrictMode>
+  </>
   // </BrowserRouter>
 );

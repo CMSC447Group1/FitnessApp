@@ -30,8 +30,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-mydb = mysql.connector.connect(user='root', password='password',
-                               host='localhost', database='workout_crud')
+mydb = mysql.connector.connect(user='sql9617151', password='G9hf1EmwVx',
+                               host='sql9.freemysqlhosting.net', database='sql9617151')
 
 if mydb.is_connected():
     print(mydb)
@@ -39,9 +39,9 @@ if mydb.is_connected():
 
 cursor = mydb.cursor(dictionary=True)
 
-cursor.execute('SET GLOBAL connect_timeout=288000000')
-cursor.execute('SET GLOBAL interactive_timeout=28800000')
-cursor.execute('SET GLOBAL wait_timeout=28800000')
+# cursor.execute('SET GLOBAL connect_timeout=288000000')
+# cursor.execute('SET GLOBAL interactive_timeout=28800000')
+# cursor.execute('SET GLOBAL wait_timeout=28800000')
 
 mydb.commit()
 

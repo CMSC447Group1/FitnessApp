@@ -8,7 +8,9 @@ const WorkoutCard = (props) => {
   const handleDelete = async (id) => {
     try {
       console.log(id);
-      await axios.delete("http://127.0.0.1:8000/myworkouts/" + id);
+      await axios.delete(
+        "https://fitness-app-backend-ce39.onrender.com/myworkouts/" + id
+      );
       window.location.reload();
     } catch (err) {
       console.log(err);

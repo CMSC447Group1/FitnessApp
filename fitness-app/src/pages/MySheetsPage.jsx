@@ -14,7 +14,7 @@ const MySheetsPage = () => {
   useEffect(() => {
     const fetchWorkouts = async () => {
       try {
-        const url = "http://localhost:8000/myworkouts";
+        const url = "https://fitness-app-backend-ce39.onrender.com/myworkouts";
         const response = await axios.get(url);
         setWorkouts(response.data);
       } catch (err) {

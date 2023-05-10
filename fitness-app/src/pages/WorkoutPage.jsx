@@ -15,7 +15,8 @@ const WorkoutPage = () => {
   useEffect(() => {
     const fetchExercises = async () => {
       try {
-        const url = "http://localhost:8000/myworkouts/" + data.id;
+        const url =
+          "https://fitness-app-backend-ce39.onrender.com/myworkouts/" + data.id;
         const response = await axios.get(url);
         // console.log(response.data);
         setExercises(response.data);

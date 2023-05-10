@@ -23,7 +23,8 @@ const EditSheetPage = () => {
   useEffect(() => {
     const fetchExercises = async () => {
       try {
-        const url = "http://localhost:8000/myworkouts/" + data.id;
+        const url =
+          "https://fitness-app-backend-ce39.onrender.com/myworkouts/" + data.id;
         const responses = await axios.get(url);
         responses.data.map((e) => {
           addExercises(e.exercise);
@@ -72,11 +73,12 @@ const EditSheetPage = () => {
     try {
       // first create the workout in the database
       await axios.put(
-        "http://127.0.0.1:8000/myworkouts/" + data.id,
+        "https://fitness-app-backend-ce39.onrender.com/myworkouts/" + data.id,
         workoutInfo
       );
       await axios.put(
-        "http://127.0.0.1:8000/myworkouts/exercises/" + data.id,
+        "https://fitness-app-backend-ce39.onrender.com/myworkouts/exercises/" +
+          data.id,
         exercises_arr
       );
       // console.log(exercises_arr);

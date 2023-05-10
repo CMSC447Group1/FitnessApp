@@ -53,9 +53,12 @@ const CreateSheetPage = () => {
 
     try {
       // first create the workout in the database
-      await axios.post("http://127.0.0.1:8000/myworkouts", workoutInfo);
       await axios.post(
-        "http://127.0.0.1:8000/myworkouts/exercises",
+        "https://fitness-app-backend-ce39.onrender.com/myworkouts",
+        workoutInfo
+      );
+      await axios.post(
+        "https://fitness-app-backend-ce39.onrender.com/myworkouts/exercises",
         exercises_arr
       );
       // console.log(exercises_arr);

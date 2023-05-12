@@ -1,8 +1,7 @@
 from fastapi import FastAPI, status, HTTPException
-import mysql.connector
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from typing import Optional, List
+from typing import List
 import time
 import psycopg2
 from psycopg2.extras import RealDictCursor

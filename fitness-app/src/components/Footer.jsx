@@ -11,7 +11,7 @@ function Footer() {
       <div className="socialMedia">
         <InstagramIcon /> <TwitterIcon /> <FacebookIcon /> <LinkedInIcon />
       </div>
-      <p className="text-white">&copy; 2023 cmsc447-fitness-app.netlify.app/</p>
+      <p className="text-white">&copy; 2023 cmsc447-fitness-app.netlify.app</p>
     </div>
   );
 }

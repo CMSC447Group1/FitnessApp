@@ -1,3 +1,4 @@
+
 export const api_options = [
     {
         id: 1,
@@ -5,7 +6,7 @@ export const api_options = [
         results: [
             {
                 id: 0,
-                name: 'none'
+                name: 'none',
             },
             {
                 id: 1,
@@ -70,6 +71,10 @@ export const api_options = [
             {
                 id: 16,
                 name: 'triceps'
+            },
+            {
+                id: 17,
+                name: 'shoulders'
             },
         ]
     },

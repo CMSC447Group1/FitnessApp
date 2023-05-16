@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 
-import { Listbox, Menu, Transition } from "@headlessui/react";
+import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 
 const DropdownButton = (props) => {
@@ -12,15 +12,15 @@ const DropdownButton = (props) => {
   };
 
   return (
-    <div className="w-52 sm:w-40 mb-2 sm:mb-0 shadow-lg">
+    <div className="w-52  sm:w-40 mb-2 sm:mb-0">
       <Listbox value={selected} onChange={handleChange}>
         <Listbox.Label className="block">Filter by {props.title}</Listbox.Label>
         <div className="relative mt-1">
-          <Listbox.Button className="relative w-full cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-300 sm:text-sm">
+          <Listbox.Button className="relative w-full cursor-default rounded-lg text-white bg-gradient-to-br from-sky-400 to-blue-600 py-2 pl-3 pr-10 text-left shadow-md shadow-slate-400 focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-300 sm:text-sm">
             <span className="block truncate">{selected.name}</span>
             <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
               <ChevronUpDownIcon
-                className="h-5 w-5 text-gray-400"
+                className="h-5 w-5 text-white"
                 aria-hidden="true"
               />
             </span>
@@ -31,13 +31,13 @@ const DropdownButton = (props) => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Listbox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+            <Listbox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md text-white bg-gradient-to-br from-sky-400 to-blue-600 py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
               {props.results.map((result) => (
                 <Listbox.Option
                   key={result.ChevronUpDownIcon}
                   className={({ active }) =>
                     `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                      active ? "bg-slate-300 text-slate-900" : "text-gray-900"
+                      active ? "bg-slate-300 text-black" : "text-white"
                     }`
                   }
                   value={result}
@@ -52,7 +52,7 @@ const DropdownButton = (props) => {
                         {result.name}
                       </span>
                       {selected ? (
-                        <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-600">
+                        <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-white">
                           <CheckIcon className="h-5 w-5" aria-hidden="true" />
                         </span>
                       ) : null}

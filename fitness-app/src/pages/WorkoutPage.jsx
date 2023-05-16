@@ -33,11 +33,11 @@ const WorkoutPage = () => {
       <Navbar />
 
       <div className="flex flex-col h-full items-center">
-        <h4 className="text-4xl mt-1 font-bold leading-tight text-gray-800 dark:text-gray-100">
+        <h4 className=" font-bold ml-3 text-transparent text-5xl bg-clip-text bg-gradient-to-br from-gray-800 to-slate-800 mt-1 leading-tight text-gray-800 dark:text-gray-100">
           {data.name}
         </h4>
 
-        <div className="flex flex-col justify-center items-center">
+        <div className="flex flex-col mx-3 justify-center items-center">
           {exercises.map((exercise) => (
             <SheetExerciseCard exercise={exercise} />
           ))}

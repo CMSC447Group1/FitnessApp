@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
-import SearchBox from "./SearchBox";
 import DropdownButton from "./DropdownButton";
+import SearchBox from "./SearchBox";
 
+import Button from "@mui/material/Button";
 import { api_options } from "../constants";
 import CardList from "./CardList";
-import Button from "@mui/material/Button";
 
 import axios from "axios";
 
@@ -44,7 +44,7 @@ const ExercisesSection = (props) => {
   }
 
   return (
-    <div id="exercises" className="flex flex-col mx-4 overflow-clip">
+    <div id="exercises" className="flex flex-col overflow-clip">
       {/* Search header group */}
       <div className="flex flex-col items-center sm:mt-2 md:flex-row sm:justify-evenly ">
         {/* Search by Name Box*/}
@@ -93,21 +93,13 @@ const ExercisesSection = (props) => {
           >
             View Exercises
           </Button>
-
-          {/* <Button
-            variant="contained"
-            className="from-pink-500 to-orange-400"
-            onClick={apiCall}
-          >
-            View Exercises
-          </Button>{" "} */}
         </div>
       </div>
       {apiData.length > 1 ? (
         <CardList exercises={apiData} callBack={props.callBack} />
       ) : (
         <div className=" text-gray-500 flex items-center justify-center mt-32 mb-60">
-          No results were found <br /> Try using other filter options
+          No results were found 🤷‍♂️ <br /> Try using other filter options
         </div>
       )}
     </div>

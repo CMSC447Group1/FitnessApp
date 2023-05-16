@@ -15,7 +15,7 @@ const SearchBox = (props) => {
           type="text"
           name="price"
           id="price"
-          className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
+          className="block w-full rounded-md bg-gradient-to-br from-sky-400 to-blue-500 border-0 py-1.5 pl-7 pr-20 text-white ring-1 ring-inset ring-gray-300 placeholder:text-blue-200 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
           placeholder="Ex: Chest Press"
           onChange={handleChange}
           onKeyDown={(event) => {

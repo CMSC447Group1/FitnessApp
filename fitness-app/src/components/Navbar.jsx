@@ -17,13 +17,25 @@ function Navbar() {
 
       <div className="flex w-full justify-end items-center mr-9">
         <ul className="list-none space-x-10 sm:flex hidden justify-end items-center flex-1">
-          <li className={"font-normal text-base cursor-pointer text-white"}>
+          <li
+            className={
+              "font-medium text-base cursor-pointer text-white hover:bg-clip-text hover:text-transparent hover:bg-gradient-to-br hover:from-sky-400 hover:to-blue-500"
+            }
+          >
             <Link to="/"> Home </Link>
           </li>
-          <li className={"font-normal text-base cursor-pointer  text-white"}>
+          <li
+            className={
+              "font-medium text-base cursor-pointer text-white hover:bg-clip-text hover:text-transparent hover:bg-gradient-to-br hover:from-sky-400 hover:to-blue-500"
+            }
+          >
             <a href={"#exercises"}> Exercises </a>{" "}
           </li>
-          <li className={"font-normal text-base cursor-pointer  text-white"}>
+          <li
+            className={
+              "font-medium text-base cursor-pointer text-white hover:bg-clip-text hover:text-transparent hover:bg-gradient-to-br hover:from-sky-400 hover:to-blue-500"
+            }
+          >
             <Link to="/sheets"> Sheets </Link>
           </li>
         </ul>

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Logo from "../assets/logo.svg";
-import close from "../assets/close.svg";
-import menu from "../assets/menu.svg";
+import Logo from "/assets/logo.svg";
+import close from "/assets/close.svg";
+import menu from "/assets/menu.svg";
 
 function Navbar() {
   const [toggle, setToggle] = useState(false);

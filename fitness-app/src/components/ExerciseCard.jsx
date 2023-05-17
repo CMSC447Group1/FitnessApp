@@ -25,7 +25,7 @@ const ExerciseCard = (props) => {
             <div className="flex p-2 items-center justify-center h-10 w-10 xl:h-12 xl:w-12 rounded-full shadow-lg shadow-black bg-gradient-to-r from-sky-400 to-blue-700">
               <img
                 className="flex h-6 w-6 xl:h-8 xl:w-8"
-                src={"/src/assets/" + props.exercise.type + ".png"}
+                src={"/assets/" + props.exercise.type + ".png"}
               />
             </div>
             <text className="text-white overflow-clip text-xs sm:text-sm">
@@ -37,7 +37,7 @@ const ExerciseCard = (props) => {
             <div className="flex p-2 items-center justify-center h-10 w-10 xl:h-12 xl:w-12 rounded-full shadow-lg shadow-black bg-gradient-to-r from-sky-400 to-blue-700">
               <img
                 class="flex h-6 w-6 xl:h-8 xl:w-8"
-                src={"/src/assets/" + props.exercise.muscle + ".png"}
+                src={"/assets/" + props.exercise.muscle + ".png"}
               />
             </div>
             <text className="text-white text-xs sm:text-sm">
@@ -49,7 +49,7 @@ const ExerciseCard = (props) => {
             <div className="flex p-2 items-center justify-center h-10 w-10 xl:h-12 xl:w-12 rounded-full shadow-lg shadow-black bg-gradient-to-r from-sky-400 to-blue-700">
               <img
                 class="flex h-6 w-6 xl:h-8 xl:w-8"
-                src={"/src/assets/" + props.exercise.difficulty + ".png"}
+                src={"/assets/" + props.exercise.difficulty + ".png"}
               />
             </div>
             <text className="text-white text-xs sm:text-sm">

@@ -46,7 +46,7 @@ const SheetExerciseCard = (props) => {
             <div className="flex p-2 items-center justify-center h-12 w-12 rounded-full shadow-lg shadow-black bg-gradient-to-r from-sky-400 to-blue-700">
               <img
                 className="flex w-fit h-fit"
-                src={"/src/assets/" + apiData[0].type + ".png"}
+                src={"/assets/" + apiData[0].type + ".png"}
               />
             </div>
             <text className="text-white text-xs sm:text-sm">
@@ -58,7 +58,7 @@ const SheetExerciseCard = (props) => {
             <div className="flex p-2 items-center justify-center h-12 w-12 rounded-full shadow-lg shadow-black bg-gradient-to-r from-sky-400 to-blue-700">
               <img
                 class="flex h-8 w-8"
-                src={"/src/assets/" + apiData[0].muscle + ".png"}
+                src={"/assets/" + apiData[0].muscle + ".png"}
               />
             </div>
             <text className="text-white text-xs sm:text-sm">
@@ -70,7 +70,7 @@ const SheetExerciseCard = (props) => {
             <div className="flex p-2 items-center justify-center h-12 w-12 rounded-full shadow-lg shadow-black bg-gradient-to-r from-sky-400 to-blue-700">
               <img
                 class="flex h-8 w-8"
-                src={"/src/assets/" + apiData[0].difficulty + ".png"}
+                src={"/assets/" + apiData[0].difficulty + ".png"}
               />
             </div>
             <text className="text-white text-xs sm:text-sm">
